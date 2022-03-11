@@ -111,7 +111,7 @@ function Home() {
   };
   let product;
   if (DATA) {
-    product = DATA.find((p) => p.id === selected);
+    product = DATA.find((p) => `${p.id}` === `${selected}`);
   }
   let parsedData = DATA;
   if (categorie) {
@@ -143,6 +143,7 @@ function Home() {
             </Card>
           </Grid>
         ))}
+        {console.log(product)}
         {product && (
           <Dialog
             fullWidth={true}
