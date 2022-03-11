@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import logo from "./logo.svg";
+import React from "react";
 import "./App.css";
 import Navigator from "./Navigator";
 import { Box, Grid } from "@mui/material";
@@ -7,29 +6,16 @@ import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import Collapse from "@mui/material/Collapse";
-import Avatar from "@mui/material/Avatar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import { red } from "@mui/material/colors";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import ButtonUnstyled, {
   buttonUnstyledClasses,
 } from "@mui/base/ButtonUnstyled";
 import { styled } from "@mui/system";
 import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import DialogTitle from "@mui/material/DialogTitle";
@@ -39,8 +25,6 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link,
-  useMatch,
   useParams,
   useNavigate,
 } from "react-router-dom";
@@ -127,7 +111,7 @@ function Home() {
   };
   let product;
   if (DATA) {
-    product = DATA.find((p) => p.id == selected);
+    product = DATA.find((p) => p.id === selected);
   }
   let parsedData = DATA;
   if (categorie) {
@@ -186,6 +170,7 @@ function Home() {
                 >
                   <TableBody>
                     {product.details &&
+                      // eslint-disable-next-line array-callback-return
                       product.details.split(".").map((row) => {
                         console.log(row.trim() === "");
                         if (row.trim() !== "")
