@@ -125,6 +125,8 @@ function Home() {
             <Card style={{ backgroundColor: "#ccc", height: 400 }}>
               <CardHeader
                 title={p.name}
+                component="h3"
+                style={{marginBlockStart: "0.3em", marginBlockEnd: "0.3em"}}
                 titleTypographyProps={{ style: { fontSize: 15 } }}
               />
               <CardMedia

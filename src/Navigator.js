@@ -39,6 +39,7 @@ export default function Navigator() {
   const drawer = (
     <>
       <Box style={{ padding: 5 }}>
+        <h1 style={{display: "none"}}>Prtn Cntucción</h1>
         <img
           src={Logo}
           alt="Logo de la empresa"
@@ -58,7 +59,7 @@ export default function Navigator() {
             button
             key={index}
           >
-            <ListItemText primary={text.title} />
+            <ListItemText primaryTypographyProps={{component: "h2"}}  primary={text.title} />
           </ListItem>
         ))}
       </List>
